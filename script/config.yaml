@@ -1,0 +1,35 @@
+data_dir: "../data"
+output_dir: "../output"
+data_preparation:
+  train_txt_dir: "/raw/SHL-2023-Train/train/"
+  val_txt_dir: "/raw/SHL-2023-Validate/validate/"
+  test_txt_dir: "/raw/SHL-2023-Test/test/"
+    
+position_estimation:
+  used_labels: [2,3,5]
+
+label_estimation:
+  directories:
+
+  parameters:
+    epochs: 100
+    num_layers: 3
+    embed_layer_size: 128
+    fc_layer_size: 256
+    dropout: 0.2
+    optimizer: "adamw"
+    amsgrad: False
+    label_smoothing: 0.1
+    learning_rate: 1.0e-3
+    weight_decay: 5.0e-5
+    warmup_steps: 10
+    batch_size: 512
+    global_clipnorm: 3.0
+    data_dim: 9
+    location_dim: 11
+    earlystopping_patience: 30
+    model_dirname: "0624"
+    model_dirname_finetune: "0624_finetune8"
+    lr_finetuning: 5.0e-5
+    epoch_finetuning: 70
+
